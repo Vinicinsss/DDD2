@@ -1,0 +1,42 @@
+@* O @model especifica que esta View espera receber uma lista de CursoDTO *@
+@model IEnumerable<SistemaUniversitario.Application.DTOs.CursoDTO>
+
+@{
+    ViewData["Title"] = "Lista de Cursos";
+}
+
+<h1>Lista de Cursos</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Criar Novo Curso</a>
+</p>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-info">Editar</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Excluir</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
