@@ -1,0 +1,16 @@
+/workspaces/DDD2/SistemaUniversitario/src/SistemaUniversitario.Application/bin/Debug/net8.0/SistemaUniversitario.Application.deps.json
+/workspaces/DDD2/SistemaUniversitario/src/SistemaUniversitario.Application/bin/Debug/net8.0/SistemaUniversitario.Application.dll
+/workspaces/DDD2/SistemaUniversitario/src/SistemaUniversitario.Application/bin/Debug/net8.0/SistemaUniversitario.Application.pdb
+/workspaces/DDD2/SistemaUniversitario/src/SistemaUniversitario.Application/bin/Debug/net8.0/SistemaUniversitario.Domain.dll
+/workspaces/DDD2/SistemaUniversitario/src/SistemaUniversitario.Application/bin/Debug/net8.0/SistemaUniversitario.Domain.pdb
+/workspaces/DDD2/SistemaUniversitario/src/SistemaUniversitario.Application/obj/Debug/net8.0/SistemaUniversitario.Application.csproj.AssemblyReference.cache
+/workspaces/DDD2/SistemaUniversitario/src/SistemaUniversitario.Application/obj/Debug/net8.0/SistemaUniversitario.Application.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/DDD2/SistemaUniversitario/src/SistemaUniversitario.Application/obj/Debug/net8.0/SistemaUniversitario.Application.AssemblyInfoInputs.cache
+/workspaces/DDD2/SistemaUniversitario/src/SistemaUniversitario.Application/obj/Debug/net8.0/SistemaUniversitario.Application.AssemblyInfo.cs
+/workspaces/DDD2/SistemaUniversitario/src/SistemaUniversitario.Application/obj/Debug/net8.0/SistemaUniversitario.Application.csproj.CoreCompileInputs.cache
+/workspaces/DDD2/SistemaUniversitario/src/SistemaUniversitario.Application/obj/Debug/net8.0/SistemaUniversitario.Application.sourcelink.json
+/workspaces/DDD2/SistemaUniversitario/src/SistemaUniversitario.Application/obj/Debug/net8.0/SistemaU.7B4D3DF4.Up2Date
+/workspaces/DDD2/SistemaUniversitario/src/SistemaUniversitario.Application/obj/Debug/net8.0/SistemaUniversitario.Application.dll
+/workspaces/DDD2/SistemaUniversitario/src/SistemaUniversitario.Application/obj/Debug/net8.0/refint/SistemaUniversitario.Application.dll
+/workspaces/DDD2/SistemaUniversitario/src/SistemaUniversitario.Application/obj/Debug/net8.0/SistemaUniversitario.Application.pdb
+/workspaces/DDD2/SistemaUniversitario/src/SistemaUniversitario.Application/obj/Debug/net8.0/ref/SistemaUniversitario.Application.dll

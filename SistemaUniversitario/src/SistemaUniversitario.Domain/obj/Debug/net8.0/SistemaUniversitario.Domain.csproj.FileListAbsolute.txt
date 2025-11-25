@@ -1,0 +1,12 @@
+/workspaces/DDD2/SistemaUniversitario/src/SistemaUniversitario.Domain/bin/Debug/net8.0/SistemaUniversitario.Domain.deps.json
+/workspaces/DDD2/SistemaUniversitario/src/SistemaUniversitario.Domain/bin/Debug/net8.0/SistemaUniversitario.Domain.dll
+/workspaces/DDD2/SistemaUniversitario/src/SistemaUniversitario.Domain/bin/Debug/net8.0/SistemaUniversitario.Domain.pdb
+/workspaces/DDD2/SistemaUniversitario/src/SistemaUniversitario.Domain/obj/Debug/net8.0/SistemaUniversitario.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/DDD2/SistemaUniversitario/src/SistemaUniversitario.Domain/obj/Debug/net8.0/SistemaUniversitario.Domain.AssemblyInfoInputs.cache
+/workspaces/DDD2/SistemaUniversitario/src/SistemaUniversitario.Domain/obj/Debug/net8.0/SistemaUniversitario.Domain.AssemblyInfo.cs
+/workspaces/DDD2/SistemaUniversitario/src/SistemaUniversitario.Domain/obj/Debug/net8.0/SistemaUniversitario.Domain.csproj.CoreCompileInputs.cache
+/workspaces/DDD2/SistemaUniversitario/src/SistemaUniversitario.Domain/obj/Debug/net8.0/SistemaUniversitario.Domain.sourcelink.json
+/workspaces/DDD2/SistemaUniversitario/src/SistemaUniversitario.Domain/obj/Debug/net8.0/SistemaUniversitario.Domain.dll
+/workspaces/DDD2/SistemaUniversitario/src/SistemaUniversitario.Domain/obj/Debug/net8.0/refint/SistemaUniversitario.Domain.dll
+/workspaces/DDD2/SistemaUniversitario/src/SistemaUniversitario.Domain/obj/Debug/net8.0/SistemaUniversitario.Domain.pdb
+/workspaces/DDD2/SistemaUniversitario/src/SistemaUniversitario.Domain/obj/Debug/net8.0/ref/SistemaUniversitario.Domain.dll

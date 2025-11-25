@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "SistemaUniversitario.Application/1.0.0": {
+        "dependencies": {
+          "SistemaUniversitario.Domain": "1.0.0"
+        },
+        "runtime": {
+          "SistemaUniversitario.Application.dll": {}
+        }
+      },
+      "SistemaUniversitario.Domain/1.0.0": {
+        "runtime": {
+          "SistemaUniversitario.Domain.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SistemaUniversitario.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SistemaUniversitario.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
