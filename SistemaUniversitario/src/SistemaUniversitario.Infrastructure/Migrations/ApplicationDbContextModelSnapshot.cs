@@ -41,6 +41,47 @@ namespace SistemaUniversitario.Infrastructure.Migrations
 
                     b.ToTable("Cursos");
                 });
+
+            modelBuilder.Entity("SistemaUniversitario.Domain.Entities.Disciplina", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CargaHoraria")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CursoId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CursoId");
+
+                    b.ToTable("Disciplinas");
+                });
+
+            modelBuilder.Entity("SistemaUniversitario.Domain.Entities.Disciplina", b =>
+                {
+                    b.HasOne("SistemaUniversitario.Domain.Entities.Curso", "Curso")
+                        .WithMany("Disciplinas")
+                        .HasForeignKey("CursoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Curso");
+                });
+
+            modelBuilder.Entity("SistemaUniversitario.Domain.Entities.Curso", b =>
+                {
+                    b.Navigation("Disciplinas");
+                });
 #pragma warning restore 612, 618
         }
     }

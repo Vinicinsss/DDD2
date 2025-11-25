@@ -1,8 +1,7 @@
-// src/SistemaUniversitario.Application/Services/CursoService.cs
-
+using Mapster;
 using SistemaUniversitario.Application.DTOs;
 using SistemaUniversitario.Application.Interfaces;
-using SistemaUniversitario.Domain.Entities; // Erro temporário
+using SistemaUniversitario.Domain.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -12,7 +11,6 @@ namespace SistemaUniversitario.Application.Services
     {
         private readonly ICursoRepository _cursoRepository;
 
-        // A dependência é injetada via construtor
         public CursoService(ICursoRepository cursoRepository)
         {
             _cursoRepository = cursoRepository;
@@ -20,12 +18,7 @@ namespace SistemaUniversitario.Application.Services
 
         public async Task AdicionarAsync(CursoDTO cursoDto)
         {
-            // Aqui você poderia usar um AutoMapper, mas para simplificar vamos fazer manualmente
-            var curso = new Curso
-            {
-                Nome = cursoDto.Nome,
-                Descricao = cursoDto.Descricao
-            };
+            var curso = cursoDto.Adapt<Curso>();
             await _cursoRepository.AddAsync(curso);
         }
 
@@ -34,8 +27,7 @@ namespace SistemaUniversitario.Application.Services
             var curso = await _cursoRepository.GetByIdAsync(cursoDto.Id);
             if (curso != null)
             {
-                curso.Nome = cursoDto.Nome;
-                curso.Descricao = cursoDto.Descricao;
+                cursoDto.Adapt(curso);
                 await _cursoRepository.UpdateAsync(curso);
             }
         }
@@ -43,36 +35,25 @@ namespace SistemaUniversitario.Application.Services
         public async Task<CursoDTO> ObterPorIdAsync(int id)
         {
             var curso = await _cursoRepository.GetByIdAsync(id);
-            if (curso == null) return null;
-
-            return new CursoDTO
-            {
-                Id = curso.Id,
-                Nome = curso.Nome,
-                Descricao = curso.Descricao
-            };
+            return curso?.Adapt<CursoDTO>();
         }
 
         public async Task<IEnumerable<CursoDTO>> ObterTodosAsync()
         {
             var cursos = await _cursoRepository.GetAllAsync();
-            var cursosDto = new List<CursoDTO>();
-
-            foreach (var curso in cursos)
-            {
-                cursosDto.Add(new CursoDTO
-                {
-                    Id = curso.Id,
-                    Nome = curso.Nome,
-                    Descricao = curso.Descricao
-                });
-            }
-            return cursosDto;
+            return cursos.Adapt<IEnumerable<CursoDTO>>();
         }
 
         public async Task RemoverAsync(int id)
         {
             await _cursoRepository.DeleteAsync(id);
+        }
+
+        // Implementação da busca com Mapster
+        public async Task<IEnumerable<CursoDTO>> PesquisarAsync(string termo)
+        {
+            var cursos = await _cursoRepository.SearchAsync(termo);
+            return cursos.Adapt<IEnumerable<CursoDTO>>();
         }
     }
 }

@@ -1,5 +1,3 @@
-// src/SistemaUniversitario.Infrastructure/Data/ApplicationDbContext.cs
-
 using Microsoft.EntityFrameworkCore;
 using SistemaUniversitario.Domain.Entities;
 using System.Reflection;
@@ -12,16 +10,19 @@ namespace SistemaUniversitario.Infrastructure.Data
         {
         }
 
-        // Mapeia a entidade 'Curso' para uma tabela chamada 'Cursos' no banco de dados.
         public DbSet<Curso> Cursos { get; set; }
+        public DbSet<Disciplina> Disciplinas { get; set; } // Nova tabela
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Este método é útil para configurações mais complexas (Fluent API),
-            // mas para nosso CRUD simples, não precisamos adicionar nada aqui por enquanto.
-            // Ele pode aplicar configurações de outros arquivos automaticamente.
-            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            // Configuração explícita do relacionamento 1:N
+            modelBuilder.Entity<Disciplina>()
+                .HasOne(d => d.Curso)
+                .WithMany(c => c.Disciplinas)
+                .HasForeignKey(d => d.CursoId)
+                .OnDelete(DeleteBehavior.Cascade); // Se apagar curso, apaga disciplinas
 
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
             base.OnModelCreating(modelBuilder);
         }
     }

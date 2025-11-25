@@ -1,20 +1,17 @@
-// src/SistemaUniversitario.Infrastructure/Repositories/CursoRepository.cs
-
 using Microsoft.EntityFrameworkCore;
 using SistemaUniversitario.Application.Interfaces;
 using SistemaUniversitario.Domain.Entities;
 using SistemaUniversitario.Infrastructure.Data;
 using System.Collections.Generic;
+using System.Linq; // Importante para o Where
 using System.Threading.Tasks;
 
 namespace SistemaUniversitario.Infrastructure.Repositories
 {
-    // Esta classe implementa o contrato definido na camada de Aplicação.
     public class CursoRepository : ICursoRepository
     {
         private readonly ApplicationDbContext _context;
 
-        // O DbContext é injetado via construtor (Injeção de Dependência).
         public CursoRepository(ApplicationDbContext context)
         {
             _context = context;
@@ -23,7 +20,7 @@ namespace SistemaUniversitario.Infrastructure.Repositories
         public async Task AddAsync(Curso curso)
         {
             await _context.Cursos.AddAsync(curso);
-            await _context.SaveChangesAsync(); // Salva as mudanças no banco.
+            await _context.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(int id)
@@ -48,9 +45,17 @@ namespace SistemaUniversitario.Infrastructure.Repositories
 
         public async Task UpdateAsync(Curso curso)
         {
-            // O EF Core rastreia a entidade, então apenas marcar como 'Modified' é suficiente.
             _context.Entry(curso).State = EntityState.Modified;
             await _context.SaveChangesAsync();
+        }
+
+        // Implementação da busca
+        public async Task<IEnumerable<Curso>> SearchAsync(string termo)
+        {
+            // Busca por Nome OU Descrição
+            return await _context.Cursos
+                .Where(c => c.Nome.Contains(termo) || c.Descricao.Contains(termo))
+                .ToListAsync();
         }
     }
 }

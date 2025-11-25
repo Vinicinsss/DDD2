@@ -1,6 +1,4 @@
-// src/SistemaUniversitario.Application/Interfaces/ICursoRepository.cs
-
-using SistemaUniversitario.Domain.Entities; // Você precisará criar essa entidade depois
+using SistemaUniversitario.Domain.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -13,5 +11,8 @@ namespace SistemaUniversitario.Application.Interfaces
         Task AddAsync(Curso curso);
         Task UpdateAsync(Curso curso);
         Task DeleteAsync(int id);
+        
+        // Novo método para a busca dinâmica
+        Task<IEnumerable<Curso>> SearchAsync(string termo);
     }
 }

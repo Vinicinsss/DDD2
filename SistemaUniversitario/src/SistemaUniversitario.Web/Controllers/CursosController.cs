@@ -1,4 +1,3 @@
-// src/SistemaUniversitario.Web/Controllers/CursosController.cs
 using Microsoft.AspNetCore.Mvc;
 using SistemaUniversitario.Application.DTOs;
 using SistemaUniversitario.Application.Interfaces;
@@ -10,7 +9,6 @@ namespace SistemaUniversitario.Web.Controllers
     {
         private readonly ICursoService _cursoService;
 
-        // O ICursoService é injetado automaticamente pelo DI
         public CursosController(ICursoService cursoService)
         {
             _cursoService = cursoService;
@@ -21,6 +19,21 @@ namespace SistemaUniversitario.Web.Controllers
         {
             var cursos = await _cursoService.ObterTodosAsync();
             return View(cursos);
+        }
+
+        // Action chamada pelo AJAX
+        [HttpGet]
+        public async Task<IActionResult> BuscarCursos(string termo)
+        {
+            if (string.IsNullOrWhiteSpace(termo))
+            {
+                // Se a busca estiver vazia, retorna todos
+                var todos = await _cursoService.ObterTodosAsync();
+                return PartialView("_TabelaCursos", todos);
+            }
+
+            var cursosFiltrados = await _cursoService.PesquisarAsync(termo);
+            return PartialView("_TabelaCursos", cursosFiltrados);
         }
 
         // GET: /Cursos/Create
