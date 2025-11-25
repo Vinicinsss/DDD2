@@ -1,0 +1,32 @@
+version: '3.4'
+
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver_container
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=SenhaForte!123 # Defina uma senha forte
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlvolume:/var/opt/mssql
+
+  webapp:
+    image: sistemauniversitario-web
+    container_name: sistema_web_container
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      # Esta Connection String sobrescreve a do appsettings.json
+      # Note que o Server é 'db' (nome do serviço acima) e usamos User Id/Password
+      - ConnectionStrings__DefaultConnection=Server=db;Database=SistemaUniversitarioDB;User Id=sa;Password=SenhaForte!123;TrustServerCertificate=True;
+    ports:
+      - "5000:8080" # Acessar via http://localhost:5000
+    depends_on:
+      - db
+
+volumes:
+  sqlvolume:
